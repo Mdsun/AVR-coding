@@ -1,0 +1,352 @@
+
+LM35.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         0000000c  00800100  000001e4  00000258  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000001e4  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      00000030  00000000  00000000  00000264  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000294  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000048  00000000  00000000  000002d4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000976  00000000  00000000  0000031c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000802  00000000  00000000  00000c92  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   0000037e  00000000  00000000  00001494  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000090  00000000  00000000  00001814  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    0000041e  00000000  00000000  000018a4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000136  00000000  00000000  00001cc2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000038  00000000  00000000  00001df8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  48:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  4c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  60:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	e4 ee       	ldi	r30, 0xE4	; 228
+  7c:	f1 e0       	ldi	r31, 0x01	; 1
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	ac 30       	cpi	r26, 0x0C	; 12
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+
+0000008a <__do_clear_bss>:
+  8a:	21 e0       	ldi	r18, 0x01	; 1
+  8c:	ac e0       	ldi	r26, 0x0C	; 12
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	ac 30       	cpi	r26, 0x0C	; 12
+  96:	b2 07       	cpc	r27, r18
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	0e 94 99 00 	call	0x132	; 0x132 <main>
+  9e:	0c 94 f0 00 	jmp	0x1e0	; 0x1e0 <_exit>
+
+000000a2 <__bad_interrupt>:
+  a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a6 <adc_init>:
+	
+	return 0;
+}
+
+void adc_init(void){
+	ADCSRA = ((1<<ADPS2)|(1<<ADPS1)|(1<<ADPS0));    //16Mhz/128 = 125Khz the ADC reference clock
+  a6:	ea e7       	ldi	r30, 0x7A	; 122
+  a8:	f0 e0       	ldi	r31, 0x00	; 0
+  aa:	87 e0       	ldi	r24, 0x07	; 7
+  ac:	80 83       	st	Z, r24
+	ADMUX = (1<<REFS0);                //Voltage reference from Avcc (5v)
+  ae:	80 e4       	ldi	r24, 0x40	; 64
+  b0:	80 93 7c 00 	sts	0x007C, r24	; 0x80007c <__TEXT_REGION_LENGTH__+0x7e007c>
+	ADCSRA |= (1<<ADEN);                //Turn on ADC
+  b4:	80 81       	ld	r24, Z
+  b6:	80 68       	ori	r24, 0x80	; 128
+  b8:	80 83       	st	Z, r24
+	ADCSRA |= (1<<ADSC);                //Do an initial conversion because this one is the slowest and to ensure that everything is up and running
+  ba:	80 81       	ld	r24, Z
+  bc:	80 64       	ori	r24, 0x40	; 64
+  be:	80 83       	st	Z, r24
+  c0:	08 95       	ret
+
+000000c2 <read_adc>:
+}
+
+uint16_t read_adc(uint8_t channel){
+	ADMUX &= 0xF0;                    //Clear the older channel that was read
+  c2:	ec e7       	ldi	r30, 0x7C	; 124
+  c4:	f0 e0       	ldi	r31, 0x00	; 0
+  c6:	90 81       	ld	r25, Z
+  c8:	90 7f       	andi	r25, 0xF0	; 240
+  ca:	90 83       	st	Z, r25
+	ADMUX |= channel;                //Defines the new ADC channel to be read
+  cc:	90 81       	ld	r25, Z
+  ce:	89 2b       	or	r24, r25
+  d0:	80 83       	st	Z, r24
+	ADCSRA |= (1<<ADSC);                //Starts a new conversion
+  d2:	ea e7       	ldi	r30, 0x7A	; 122
+  d4:	f0 e0       	ldi	r31, 0x00	; 0
+  d6:	80 81       	ld	r24, Z
+  d8:	80 64       	ori	r24, 0x40	; 64
+  da:	80 83       	st	Z, r24
+	while(ADCSRA & (1<<ADSC));            //Wait until the conversion is done
+  dc:	80 81       	ld	r24, Z
+  de:	86 fd       	sbrc	r24, 6
+  e0:	fd cf       	rjmp	.-6      	; 0xdc <read_adc+0x1a>
+	return ADC;                    //Returns the ADC value of the chosen channel
+  e2:	80 91 78 00 	lds	r24, 0x0078	; 0x800078 <__TEXT_REGION_LENGTH__+0x7e0078>
+  e6:	90 91 79 00 	lds	r25, 0x0079	; 0x800079 <__TEXT_REGION_LENGTH__+0x7e0079>
+}
+  ea:	08 95       	ret
+
+000000ec <USART_init>:
+
+void USART_init(void){
+	
+	UBRR0H = (uint8_t)(BAUD_PRESCALLER>>8);
+  ec:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7e00c5>
+	UBRR0L = (uint8_t)(BAUD_PRESCALLER);
+  f0:	83 e3       	ldi	r24, 0x33	; 51
+  f2:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7e00c4>
+	UCSR0B = (1<<RXEN0)|(1<<TXEN0);
+  f6:	88 e1       	ldi	r24, 0x18	; 24
+  f8:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7e00c1>
+	UCSR0C = (3<<UCSZ00);
+  fc:	86 e0       	ldi	r24, 0x06	; 6
+  fe:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7e00c2>
+ 102:	08 95       	ret
+
+00000104 <USART_send>:
+}
+
+void USART_send( unsigned char data){
+	
+	while(!(UCSR0A & (1<<UDRE0)));
+ 104:	e0 ec       	ldi	r30, 0xC0	; 192
+ 106:	f0 e0       	ldi	r31, 0x00	; 0
+ 108:	90 81       	ld	r25, Z
+ 10a:	95 ff       	sbrs	r25, 5
+ 10c:	fd cf       	rjmp	.-6      	; 0x108 <USART_send+0x4>
+	//printf("value is %u ",data);
+	//UDR0 = '1';
+	UDR0 = data;
+ 10e:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
+ 112:	08 95       	ret
+
+00000114 <USART_putstring>:
+	
+	
+	
+}
+
+void USART_putstring(char* StringPtr){
+ 114:	cf 93       	push	r28
+ 116:	df 93       	push	r29
+ 118:	ec 01       	movw	r28, r24
+	
+	while(*StringPtr != 0x00){
+ 11a:	88 81       	ld	r24, Y
+ 11c:	88 23       	and	r24, r24
+ 11e:	31 f0       	breq	.+12     	; 0x12c <USART_putstring+0x18>
+ 120:	21 96       	adiw	r28, 0x01	; 1
+		
+		USART_send(*StringPtr);
+ 122:	0e 94 82 00 	call	0x104	; 0x104 <USART_send>
+	
+}
+
+void USART_putstring(char* StringPtr){
+	
+	while(*StringPtr != 0x00){
+ 126:	89 91       	ld	r24, Y+
+ 128:	81 11       	cpse	r24, r1
+ 12a:	fb cf       	rjmp	.-10     	; 0x122 <USART_putstring+0xe>
+		
+		USART_send(*StringPtr);
+		StringPtr++;
+	}
+	
+}
+ 12c:	df 91       	pop	r29
+ 12e:	cf 91       	pop	r28
+ 130:	08 95       	ret
+
+00000132 <main>:
+uint16_t read_adc(uint8_t channel);    //Function to read an arbitrary analogic channel/pin
+void USART_init(void);            //Function to initialize and configure the USART/serial
+void USART_send( unsigned char data);    //Function that sends a char over the serial port
+void USART_putstring(char* StringPtr);    //Function that sends a string over the serial port
+
+int main(void){
+ 132:	cf 93       	push	r28
+ 134:	df 93       	push	r29
+ 136:	00 d0       	rcall	.+0      	; 0x138 <main+0x6>
+ 138:	00 d0       	rcall	.+0      	; 0x13a <main+0x8>
+ 13a:	1f 92       	push	r1
+ 13c:	cd b7       	in	r28, 0x3d	; 61
+ 13e:	de b7       	in	r29, 0x3e	; 62
+	adc_init();        //Setup the ADC
+ 140:	0e 94 53 00 	call	0xa6	; 0xa6 <adc_init>
+	USART_init();        //Setup the USART
+ 144:	0e 94 76 00 	call	0xec	; 0xec <USART_init>
+	DDRC = 0xff;
+ 148:	8f ef       	ldi	r24, 0xFF	; 255
+ 14a:	87 b9       	out	0x07, r24	; 7
+	
+	while(1){
+		uint16_t x= read_adc(0);
+ 14c:	80 e0       	ldi	r24, 0x00	; 0
+ 14e:	0e 94 61 00 	call	0xc2	; 0xc2 <read_adc>
+    } else if (__radix < 2 || __radix > 36) {
+	*__s = 0;
+	return __s;
+    } else {
+	extern char *__utoa_ncheck (unsigned int, char *, unsigned char);
+	return __utoa_ncheck (__val, __s, __radix);
+ 152:	4a e0       	ldi	r20, 0x0A	; 10
+ 154:	be 01       	movw	r22, r28
+ 156:	6f 5f       	subi	r22, 0xFF	; 255
+ 158:	7f 4f       	sbci	r23, 0xFF	; 255
+ 15a:	8e 59       	subi	r24, 0x9E	; 158
+ 15c:	91 09       	sbc	r25, r1
+ 15e:	0e 94 c6 00 	call	0x18c	; 0x18c <__utoa_ncheck>
+		uint16_t result = x-158; //as refernece voltage 5V=5000
+		
+		char buffer[5];
+		utoa(result,buffer,10);
+		USART_putstring("value is :");
+ 162:	80 e0       	ldi	r24, 0x00	; 0
+ 164:	91 e0       	ldi	r25, 0x01	; 1
+ 166:	0e 94 8a 00 	call	0x114	; 0x114 <USART_putstring>
+		USART_putstring(buffer);
+ 16a:	ce 01       	movw	r24, r28
+ 16c:	01 96       	adiw	r24, 0x01	; 1
+ 16e:	0e 94 8a 00 	call	0x114	; 0x114 <USART_putstring>
+		USART_send(13);
+ 172:	8d e0       	ldi	r24, 0x0D	; 13
+ 174:	0e 94 82 00 	call	0x104	; 0x104 <USART_send>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 178:	2f ef       	ldi	r18, 0xFF	; 255
+ 17a:	81 ee       	ldi	r24, 0xE1	; 225
+ 17c:	94 e0       	ldi	r25, 0x04	; 4
+ 17e:	21 50       	subi	r18, 0x01	; 1
+ 180:	80 40       	sbci	r24, 0x00	; 0
+ 182:	90 40       	sbci	r25, 0x00	; 0
+ 184:	e1 f7       	brne	.-8      	; 0x17e <main+0x4c>
+ 186:	00 c0       	rjmp	.+0      	; 0x188 <main+0x56>
+ 188:	00 00       	nop
+		_delay_ms(100);
+				
+	}
+ 18a:	e0 cf       	rjmp	.-64     	; 0x14c <main+0x1a>
+
+0000018c <__utoa_ncheck>:
+ 18c:	bb 27       	eor	r27, r27
+
+0000018e <__utoa_common>:
+ 18e:	fb 01       	movw	r30, r22
+ 190:	55 27       	eor	r21, r21
+ 192:	aa 27       	eor	r26, r26
+ 194:	88 0f       	add	r24, r24
+ 196:	99 1f       	adc	r25, r25
+ 198:	aa 1f       	adc	r26, r26
+ 19a:	a4 17       	cp	r26, r20
+ 19c:	10 f0       	brcs	.+4      	; 0x1a2 <__utoa_common+0x14>
+ 19e:	a4 1b       	sub	r26, r20
+ 1a0:	83 95       	inc	r24
+ 1a2:	50 51       	subi	r21, 0x10	; 16
+ 1a4:	b9 f7       	brne	.-18     	; 0x194 <__utoa_common+0x6>
+ 1a6:	a0 5d       	subi	r26, 0xD0	; 208
+ 1a8:	aa 33       	cpi	r26, 0x3A	; 58
+ 1aa:	08 f0       	brcs	.+2      	; 0x1ae <__utoa_common+0x20>
+ 1ac:	a9 5d       	subi	r26, 0xD9	; 217
+ 1ae:	a1 93       	st	Z+, r26
+ 1b0:	00 97       	sbiw	r24, 0x00	; 0
+ 1b2:	79 f7       	brne	.-34     	; 0x192 <__utoa_common+0x4>
+ 1b4:	b1 11       	cpse	r27, r1
+ 1b6:	b1 93       	st	Z+, r27
+ 1b8:	11 92       	st	Z+, r1
+ 1ba:	cb 01       	movw	r24, r22
+ 1bc:	0c 94 e0 00 	jmp	0x1c0	; 0x1c0 <strrev>
+
+000001c0 <strrev>:
+ 1c0:	dc 01       	movw	r26, r24
+ 1c2:	fc 01       	movw	r30, r24
+ 1c4:	67 2f       	mov	r22, r23
+ 1c6:	71 91       	ld	r23, Z+
+ 1c8:	77 23       	and	r23, r23
+ 1ca:	e1 f7       	brne	.-8      	; 0x1c4 <strrev+0x4>
+ 1cc:	32 97       	sbiw	r30, 0x02	; 2
+ 1ce:	04 c0       	rjmp	.+8      	; 0x1d8 <strrev+0x18>
+ 1d0:	7c 91       	ld	r23, X
+ 1d2:	6d 93       	st	X+, r22
+ 1d4:	70 83       	st	Z, r23
+ 1d6:	62 91       	ld	r22, -Z
+ 1d8:	ae 17       	cp	r26, r30
+ 1da:	bf 07       	cpc	r27, r31
+ 1dc:	c8 f3       	brcs	.-14     	; 0x1d0 <strrev+0x10>
+ 1de:	08 95       	ret
+
+000001e0 <_exit>:
+ 1e0:	f8 94       	cli
+
+000001e2 <__stop_program>:
+ 1e2:	ff cf       	rjmp	.-2      	; 0x1e2 <__stop_program>
